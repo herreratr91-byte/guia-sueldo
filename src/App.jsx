@@ -425,7 +425,7 @@ function OpenQuestions({ onFinish }) {
         </button>
         {!allFilled && (
           <p style={{ textAlign: "center", fontSize: 12, color: "#aaa", fontFamily: F.body, marginTop: -8 }}>
-            Rellena las 3 respuestas para continuar
+            Escribe al menos 3 palabras en cada respuesta para continuar
           </p>
         )}
       </div>

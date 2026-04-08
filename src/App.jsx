@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 // 1. Crea cuenta en stripe.com
 // 2. Ve a Developers → API Keys → copia tu "Publishable key"
 // 3. Pega aquí abajo tu clave (empieza por pk_live_ o pk_test_)
-const STRIPE_PUBLISHABLE_KEY = "pk_test_REEMPLAZA_CON_TU_CLAVE_DE_STRIPE";
+const STRIPE_PUBLISHABLE_KEY = "pk_live_51TJu53KzC0ht0g2Cmo01W4lpXPHJsKVKZglBNAoyBSbWI5pR7RfaN4kWrxJwfdhAos1jSg689NMGDfQ6IcyUPaQU00UnD9XZyK";
 const PRECIO_EUROS = "4,99";
 
 // ─── PREGUNTAS (15 preguntas, 5 opciones cada una) ───────────────

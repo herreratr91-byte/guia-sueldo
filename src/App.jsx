@@ -299,7 +299,32 @@ const res = await fetch("https://api.anthropic.com/v1/messages", {
     }
   };
 
-  const iniciarPago = async () => {
+const iniciarPago = async () => {
+  try {
+    const res = await fetch('/api/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const { clientSecret } = await res.json();
+    const stripe = window.Stripe(STRIPE_PUBLISHABLE_KEY);
+    const { error } = await stripe.confirmPayment({
+      clientSecret,
+      confirmParams: {
+        return_url: window.location.href,
+      },
+      redirect: 'if_required',
+    });
+    if (error) {
+      alert('Error en el pago: ' + error.message);
+    } else {
+      setPagado(true);
+      setScreen('guide');
+    }
+  } catch (e) {
+    console.error(e);
+    alert('Error procesando el pago. Inténtalo de nuevo.');
+  }
+};
     if (!stripeLoaded || !window.Stripe) {
       alert("Stripe no está cargado aún. Espera un momento.");
       return;
